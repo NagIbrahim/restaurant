@@ -15,8 +15,6 @@ function Menu() {
 
   const allCategory = ["all", ...new Set(data.map((item) => item.cat))];
 
-  let findUser = users.find((user) => user.email === signinValue.siEmail);
-
   // useEffect(() => {
   //   findUser = users.find((user) => user.email === signinValue.siEmail);
   //   setFindUserState(findUser);

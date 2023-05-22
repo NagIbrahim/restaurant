@@ -5,10 +5,16 @@ import { useState } from "react";
 import Modal from "./Modal"; // Import the Modal component
 
 import "./card.css";
+import useLocalStorage from "use-local-storage";
 
 function Card({ item }) {
-  let { signinValue, users, setFindUserState, setSigninValue, findUserState } =
-    useContext(context);
+  let { signinValue, users, setSigninValue } = useContext(context);
+  let findUser = users?.find((user) => user.email === signinValue.siEmail);
+
+  let [findUserState, setFindUserState] = useLocalStorage(
+    findUser?.email,
+    findUser
+  );
   // const {
   //   state: { cart },
   //   dispatch,
@@ -20,8 +26,6 @@ function Card({ item }) {
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
-
-  let findUser = users.find((user) => user.email === signinValue.siEmail);
 
   let handleAddToCart = () => {
     // Herre is case we have the product in the cart

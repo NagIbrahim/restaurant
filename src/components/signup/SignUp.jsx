@@ -3,6 +3,7 @@ import "./signup.css";
 import { useContext } from "react";
 import { context } from "../context/Context";
 import { Link } from "react-router-dom";
+import useLocalStorage from "use-local-storage";
 
 function SignUp() {
   let {
@@ -11,11 +12,15 @@ function SignUp() {
     setSigninValue,
     users,
     setUsers,
-    findUser,
-    setFindUserState,
+
     signinValue,
   } = useContext(context);
+  let findUser = users?.find((user) => user.email === signinValue.siEmail);
 
+  let [findUserState, setFindUserState] = useLocalStorage(
+    findUser?.email,
+    findUser
+  );
   let [rePassword, setRePassword] = useState("");
   let [passwordNotMatch, setPasswordNotMatch] = useState("");
   let [passwordReq, setPasswordReq] = useState("");
@@ -55,10 +60,10 @@ function SignUp() {
     }
   };
 
-  useEffect(() => {
-    findUser = users.find((user) => user.email === signinValue.siEmail);
-    setFindUserState(findUser);
-  }, []);
+  // useEffect(() => {
+  //   findUser = users.find((user) => user.email === signinValue.siEmail);
+  //   setFindUserState(findUser);
+  // }, []);
   return (
     <div className="f-container">
       <form id="signup" onSubmit={handleSubmitSignup}>

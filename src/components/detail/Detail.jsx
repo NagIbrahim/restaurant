@@ -5,7 +5,7 @@ import "./detail.css";
 
 function Detail() {
   const { id } = useParams();
-  let choosenItem = data.find((item) => {
+  let choosenItem = data?.find((item) => {
     return item.id === id;
   });
 

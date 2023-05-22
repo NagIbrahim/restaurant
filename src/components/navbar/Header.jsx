@@ -15,11 +15,16 @@ import "./header.css";
 import logo from "./logo3.jpg";
 import { useContext } from "react";
 import { useEffect } from "react";
+import useLocalStorage from "use-local-storage";
 
 const Header = () => {
-  let { signinValue, users, setFindUserState, setSigninValue, findUserState } =
-    useContext(context);
-  let findUser = users.find((user) => user.email === signinValue.siEmail);
+  let { signinValue, users, setSigninValue } = useContext(context);
+  let findUser = users?.find((user) => user?.email === signinValue?.siEmail);
+
+  let [findUserState, setFindUserState] = useLocalStorage(
+    findUser?.email,
+    findUser
+  );
   let handleDelete = (index) => {
     let newItems = findUserState?.cart.filter((item, i) => i !== index);
     setFindUserState({ ...findUserState, cart: newItems });
@@ -46,7 +51,7 @@ const Header = () => {
           <Link to="/menu">Menu</Link>
         )}
         <Nav>
-          {findUserState && (
+          {findUser && (
             <Dropdown alignRight>
               <Dropdown.Toggle variant="success">
                 <FaShoppingCart
@@ -54,13 +59,13 @@ const Header = () => {
                   style={{ marginLeft: "10px" }}
                   fontSize="25px"
                 />
-                <Badge>{findUserState.cart.length}</Badge>
+                <Badge>{findUserState?.cart.length}</Badge>
               </Dropdown.Toggle>
 
               <Dropdown.Menu style={{ minWidth: 370 }}>
-                {findUserState.cart.length > 0 ? (
+                {findUserState?.cart.length > 0 ? (
                   <>
-                    {findUserState.cart.map((prod, index) => (
+                    {findUserState?.cart.map((prod, index) => (
                       <span className="cartitem" key={prod.id}>
                         <img
                           src={prod.image}
@@ -99,7 +104,7 @@ const Header = () => {
           )}
 
           <div id="sign">
-            {findUserState ? (
+            {findUser ? (
               <Link
                 to="/signin"
                 onClick={() => setSigninValue({ siEmail: "", siPassword: "" })}
@@ -110,7 +115,7 @@ const Header = () => {
               <Link to="/signin">Login</Link>
             )}
 
-            <span>{findUserState?.username}</span>
+            <span>{findUser?.username}</span>
           </div>
         </Nav>
       </Container>

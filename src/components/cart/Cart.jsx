@@ -5,15 +5,21 @@ import { context } from "../context/Context";
 import "./cart.css";
 
 import { AiFillDelete } from "react-icons/ai";
+import useLocalStorage from "use-local-storage";
 function Cart() {
-  let { signinValue, users, setFindUserState, setSigninValue, findUserState } =
-    useContext(context);
+  let { signinValue, users, setSigninValue } = useContext(context);
+  let findUser = users?.find((user) => user.email === signinValue.siEmail);
+
+  let [findUserState, setFindUserState] = useLocalStorage(
+    findUser?.email,
+    findUser
+  );
   // const {
   //   state: { cart },
   //   dispatch,
   // } = CartState();
   const [total, setTotal] = useState(
-    findUserState.cart.reduce(
+    findUserState?.cart.reduce(
       (acc, curr) => acc + Number(curr.price) * curr.quan,
       0
     )
@@ -46,7 +52,9 @@ function Cart() {
       newItem?.reduce((acc, curr) => acc + Number(curr.price) * curr.quan, 0)
     );
     if (product.quan === 1) {
-      let filterRemove = findUserState.cart.filter((ite, inx) => inx !== index);
+      let filterRemove = findUserState?.cart.filter(
+        (ite, inx) => inx !== index
+      );
       setFindUserState({ ...findUserState, cart: filterRemove });
       setTotal(
         filterRemove?.reduce(
