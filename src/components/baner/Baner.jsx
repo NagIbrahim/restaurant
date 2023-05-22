@@ -19,22 +19,22 @@ function Baner() {
       </sidebar>
       <div className="carusel-container">
         <Carousel>
-          <Carousel.Item interval={700}>
+          <Carousel.Item interval={1000}>
             <img className="d-block w-100" src={b1} alt="First slide" />
             <Carousel.Caption>
-              <h3>Delicious</h3>
+              <h3 className="carousel_title">Delicious</h3>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={700}>
+          <Carousel.Item interval={1000}>
             <img className="d-block w-100" src={b2} alt="Second slide" />
             <Carousel.Caption>
-              <h3>Healthy </h3>
+              <h3 className="carousel_title">Healthy </h3>
             </Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={700}>
+          <Carousel.Item interval={1000}>
             <img className="d-block w-100" src={d3} alt="Third slide" />
             <Carousel.Caption>
-              <h3>Frish</h3>
+              <h3 className="carousel_title">Frish</h3>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

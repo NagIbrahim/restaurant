@@ -7,6 +7,14 @@
   align-items: stretch;
   flex-direction: row;
 }
+.carousel_title {
+  background-color: rgba(0, 0, 0, 0.496) !important;
+  padding: 0.5rem 0;
+  min-width: 20rem;
+  margin: 0 auto;
+  border-radius: 20px;
+  color: white !important;
+}
 
 .carusel-container {
   width: 60%;
