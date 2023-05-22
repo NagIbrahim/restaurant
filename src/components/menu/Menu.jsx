@@ -17,10 +17,10 @@ function Menu() {
 
   let findUser = users.find((user) => user.email === signinValue.siEmail);
 
-  useEffect(() => {
-    findUser = users.find((user) => user.email === signinValue.siEmail);
-    setFindUserState(findUser);
-  }, []);
+  // useEffect(() => {
+  //   findUser = users.find((user) => user.email === signinValue.siEmail);
+  //   setFindUserState(findUser);
+  // }, []);
 
   return (
     <div className="menu">

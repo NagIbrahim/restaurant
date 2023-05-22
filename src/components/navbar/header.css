@@ -7,6 +7,12 @@
   margin: 10px 0;
   /* border: 5px solid blue; */
 }
+.dropdown-menu {
+  min-width: 16rem !important;
+}
+.navbar-expand .navbar-nav {
+  align-items: center;
+}
 
 .cartitem {
   display: flex;

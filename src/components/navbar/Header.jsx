@@ -10,7 +10,7 @@ import {
   Navbar,
 } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
-import { CartState, context } from "../context/Context";
+import { context } from "../context/Context";
 import "./header.css";
 import logo from "./logo3.jpg";
 import { useContext } from "react";
@@ -20,13 +20,18 @@ const Header = () => {
   let { signinValue, users, setFindUserState, setSigninValue, findUserState } =
     useContext(context);
   let findUser = users.find((user) => user.email === signinValue.siEmail);
-  useEffect(() => {
-    setFindUserState(findUser);
-  }, []);
-  const {
-    state: { cart },
-    dispatch,
-  } = CartState();
+  let handleDelete = (index) => {
+    let newItems = findUserState?.cart.filter((item, i) => i !== index);
+    setFindUserState({ ...findUserState, cart: newItems });
+  };
+
+  // useEffect(() => {
+  //   setFindUserState(findUser);
+  // }, []);
+  // const {
+  //   state: { cart },
+  //   dispatch,
+  // } = CartState();
 
   return (
     <Navbar variant="dark" style={{ height: 100 }}>
@@ -49,13 +54,13 @@ const Header = () => {
                   style={{ marginLeft: "10px" }}
                   fontSize="25px"
                 />
-                <Badge>{cart.length}</Badge>
+                <Badge>{findUserState.cart.length}</Badge>
               </Dropdown.Toggle>
 
               <Dropdown.Menu style={{ minWidth: 370 }}>
-                {cart.length > 0 ? (
+                {findUserState.cart.length > 0 ? (
                   <>
-                    {cart.map((prod) => (
+                    {findUserState.cart.map((prod, index) => (
                       <span className="cartitem" key={prod.id}>
                         <img
                           src={prod.image}
@@ -69,12 +74,7 @@ const Header = () => {
                         <AiFillDelete
                           fontSize="20px"
                           style={{ cursor: "pointer", color: "green" }}
-                          onClick={() =>
-                            dispatch({
-                              type: "REMOVE_FROM_CART",
-                              payload: prod,
-                            })
-                          }
+                          onClick={() => handleDelete(index)}
                         />
                       </span>
                     ))}

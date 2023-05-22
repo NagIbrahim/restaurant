@@ -109,11 +109,14 @@ const Context = ({ children }) => {
   });
   let findUser = users.find((user) => user.email === signinValue.siEmail);
 
-  let [findUserState, setFindUserState] = useState(findUser);
-  useEffect(() => {
-    findUser = users.find((user) => user.email === signinValue.siEmail);
-    setFindUserState(findUser);
-  }, []);
+  let [findUserState, setFindUserState] = useLocalStorage(
+    "findUserState",
+    findUser
+  );
+  // useEffect(() => {
+  //   findUser = users.find((user) => user.email === signinValue.siEmail);
+  //   setFindUserState(findUser);
+  // }, []);
 
   return (
     <context.Provider

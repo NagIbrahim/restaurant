@@ -9,10 +9,10 @@ import "./card.css";
 function Card({ item }) {
   let { signinValue, users, setFindUserState, setSigninValue, findUserState } =
     useContext(context);
-  const {
-    state: { cart },
-    dispatch,
-  } = CartState();
+  // const {
+  //   state: { cart },
+  //   dispatch,
+  // } = CartState();
 
   // this the new part
   const [isOpen, setIsOpen] = useState(false); // State to track pop-up window
@@ -23,10 +23,30 @@ function Card({ item }) {
 
   let findUser = users.find((user) => user.email === signinValue.siEmail);
 
-  useEffect(() => {
-    findUser = users.find((user) => user.email === signinValue.siEmail);
-    setFindUserState(findUser);
-  }, []);
+  let handleAddToCart = () => {
+    // Herre is case we have the product in the cart
+    if (findUserState?.cart.some((ite) => Number(ite.id) === Number(item.id))) {
+      let newItems = findUserState?.cart.map((it) =>
+        Number(it.id) === Number(item.id) ? { ...it, quan: it.quan + 1 } : it
+      );
+      setFindUserState({ ...findUserState, cart: newItems });
+      return;
+    }
+    setFindUserState({
+      ...findUserState,
+      cart: [...findUserState?.cart, item],
+    });
+  };
+  let handleDelete = () => {
+    let newItems = findUserState?.cart?.filter(
+      (it) => Number(item.id) !== Number(it.id)
+    );
+    setFindUserState({ ...findUserState, cart: newItems });
+  };
+
+  // useEffect(() => {
+  //   setFindUserState(findUser);
+  // }, []);
 
   return (
     <div className="card_">
@@ -46,7 +66,19 @@ function Card({ item }) {
           </button> */}
 
           <button onClick={toggleModal}>More</button>
-          {cart.some((p) => p.id === item.id) ? (
+          {findUserState?.cart?.some(
+            (ite) => Number(ite.id) === Number(item.id)
+          ) ? (
+            <button className="danger_" onClick={handleDelete}>
+              Remove from cart
+            </button>
+          ) : findUserState ? (
+            <button onClick={handleAddToCart}>Add to cart</button>
+          ) : (
+            <button>Sign in</button>
+          )}
+
+          {/* {cart.some((p) => p.id === item.id) ? (
             findUserState && (
               <button
                 className="danger_"
@@ -73,7 +105,7 @@ function Card({ item }) {
             </button>
           ) : (
             <button>sign in</button>
-          )}
+          )} */}
           {/* <button>add to cart</button> */}
         </div>
       </div>

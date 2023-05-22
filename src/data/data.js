@@ -1,6 +1,7 @@
 const data = [
   {
     id: "1",
+    quan: 1,
     cat: "breakfast ",
     title: " Muffin",
     description:
@@ -11,6 +12,7 @@ const data = [
   },
   {
     id: "5",
+    quan: 1,
     cat: "breakfast ",
     title: "Simple B1",
     description:
@@ -21,6 +23,7 @@ const data = [
   },
   {
     id: "3",
+    quan: 1,
     cat: "breakfast ",
     title: "Simple B2",
     description:
@@ -31,6 +34,7 @@ const data = [
   },
   {
     id: "2",
+    quan: 1,
     cat: "lunch ",
     title: "Kabab",
     description:
@@ -41,6 +45,7 @@ const data = [
   },
   {
     id: "7",
+    quan: 1,
     cat: "lunch",
     title: "Homos",
     description:
@@ -51,6 +56,7 @@ const data = [
   },
   {
     id: "4",
+    quan: 1,
     cat: "lunch ",
     title: "Chicken",
     description:
@@ -62,6 +68,7 @@ const data = [
 
   {
     id: "10",
+    quan: 1,
     cat: "dinner ",
     title: "Sandwitch 1",
     description:
@@ -73,6 +80,7 @@ const data = [
 
   {
     id: "12",
+    quan: 1,
     cat: "dinner ",
     title: "Sandwitch 2",
     description:
@@ -84,6 +92,7 @@ const data = [
 
   {
     id: "9",
+    quan: 1,
     cat: "dinner ",
     title: "Sandwitch 3",
     description:
