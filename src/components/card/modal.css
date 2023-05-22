@@ -1,0 +1,36 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  padding: 2rem;
+  position: relative; /* Ensure relative positioning for the close button */
+  border-radius: 8px;
+  border: 2px solid green;
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.close-icon {
+  font-size: 2rem;
+}

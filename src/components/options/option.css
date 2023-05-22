@@ -1,0 +1,15 @@
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-container button {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1% 2%;
+  border-radius: 8px;
+  color: #fff;
+  margin: 10px;
+  cursor: pointer;
+  background-color: orange;
+}

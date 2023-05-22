@@ -1,0 +1,55 @@
+.products-container {
+  width: 100%;
+  display: flex;
+}
+
+.product-list {
+  margin: 1%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1%;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+  font-size: 2vw;
+  color: green;
+}
+
+.product-image {
+  width: 30%;
+}
+
+.product-image img {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 20px 15px;
+}
+
+.filters {
+  background-color: green !important;
+  color: aliceblue;
+
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+
+  margin: 1%;
+  height: 86vh;
+}
+
+.filters > span {
+  padding-bottom: 5%;
+}
+
+.title {
+  font-size: 1.2vw;
+}
+
+button {
+  border: none;
+  overflow: hidden;
+}
