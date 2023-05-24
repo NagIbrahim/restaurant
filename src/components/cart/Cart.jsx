@@ -14,10 +14,7 @@ function Cart() {
     findUser?.email,
     findUser
   );
-  // const {
-  //   state: { cart },
-  //   dispatch,
-  // } = CartState();
+
   const [total, setTotal] = useState(
     findUserState?.cart.reduce(
       (acc, curr) => acc + Number(curr.price) * curr.quan,
@@ -93,7 +90,7 @@ function Cart() {
             <div>${product.price} </div>
 
             <div>
-              <button onClick={() => handleDelete(index)}>
+              <button id="delete" onClick={() => handleDelete(index)}>
                 <AiFillDelete fontSize="1.2vw" color="green" />
               </button>
             </div>
@@ -105,7 +102,7 @@ function Cart() {
           Subtotal ({findUserState?.cart.length}) items
         </span>
         <span style={{ fontWeight: 700, fontSize: 20 }}>Total: $ {total}</span>
-        <button disabled={findUserState?.cart.length === 0}>
+        <button id="check" disabled={findUserState?.cart.length === 0}>
           Proceed to checkout
         </button>
       </div>

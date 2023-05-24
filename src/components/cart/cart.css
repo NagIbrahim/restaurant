@@ -17,6 +17,7 @@
   padding: 2%;
   font-size: 2vw;
   color: green;
+  align-items: center;
 }
 
 .product-image {
@@ -52,4 +53,35 @@
 button {
   border: none;
   overflow: hidden;
+}
+
+/* --------------------------------------------------------- */
+.cart_btns {
+  display: flex;
+  align-items: center;
+}
+
+.cart_btns button {
+  font-size: 1.2rem;
+  background-color: green;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+.cart_btns button:hover {
+  background-color: darkgreen;
+}
+
+#check {
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+  /* padding: 0.5rem; */
+}
+
+#delete {
+  background-color: transparent;
 }
