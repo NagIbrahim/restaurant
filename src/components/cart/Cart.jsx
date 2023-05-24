@@ -90,8 +90,8 @@ function Cart() {
             <div>${product.price} </div>
 
             <div>
-              <button id="delete" onClick={() => handleDelete(index)}>
-                <AiFillDelete fontSize="1.2vw" color="green" />
+              <button id="del" onClick={() => handleDelete(index)}>
+                <AiFillDelete fontSize="1.2vw" color="orange" />
               </button>
             </div>
           </div>
