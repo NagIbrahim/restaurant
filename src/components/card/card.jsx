@@ -3,11 +3,12 @@ import React, { useContext, useEffect } from "react";
 import { CartState, context } from "../context/Context";
 import { useState } from "react";
 import Modal from "./Modal"; // Import the Modal component
-
+import { useNavigate } from "react-router-dom";
 import "./card.css";
 import useLocalStorage from "use-local-storage";
 
 function Card({ item }) {
+  let navigate = useNavigate();
   let { signinValue, users, setSigninValue } = useContext(context);
   let findUser = users?.find((user) => user.email === signinValue.siEmail);
 
@@ -79,7 +80,7 @@ function Card({ item }) {
           ) : findUserState ? (
             <button onClick={handleAddToCart}>Add to cart</button>
           ) : (
-            <button>Sign in</button>
+            <button onClick={() => navigate("/signin")}>Sign in</button>
           )}
 
           {/* {cart.some((p) => p.id === item.id) ? (

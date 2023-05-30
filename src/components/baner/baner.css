@@ -1,28 +1,28 @@
 .baner {
   display: flex;
-
   width: 100%;
   height: (100%-3, 800);
   justify-content: center;
-  align-items: stretch;
   flex-direction: row;
+  gap: 1rem;
 }
 .carousel_title {
   background-color: rgba(0, 0, 0, 0.496) !important;
   padding: 0.5rem 0;
-  min-width: 20rem;
+  width: 50%;
   margin: 0 auto;
   border-radius: 20px;
   color: white !important;
+  font-size: 1.1rem !important;
 }
 
 .carusel-container {
   width: 60%;
 
-  margin: 1% auto;
+  /* margin: 1% auto; */
 }
 .carusel-container img {
-  height: 40vw;
+  height: 30vw;
   object-fit: cover;
 }
 
@@ -38,20 +38,45 @@ sidebar {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;
 }
 
 sidebar h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: green;
+  text-align: center;
 }
 
-.baner button {
+sidebar button {
   margin-top: 3rem;
-  width: 30%;
+  width: 10rem;
   border: none;
   outline: none;
   font-size: 0.8rem;
-  padding: 1% 0;
+  padding: 0.3rem 0;
   background-color: orange;
   border-radius: 10px;
+  transition: 0.5s;
+}
+sidebar button:hover {
+  transition: 0.5s;
+  background-color: black;
+}
+sidebar button a:hover {
+  color: white;
+}
+@media only screen and (max-width: 750px) {
+  .baner {
+    flex-direction: column;
+    align-items: center;
+  }
+  sidebar {
+    width: 100%;
+  }
+  .carusel-container {
+    width: 100%;
+  }
+  .carusel-container img {
+    height: 45vw;
+  }
 }

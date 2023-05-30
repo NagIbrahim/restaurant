@@ -1,11 +1,13 @@
 .products-container {
   width: 100%;
   display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .product-list {
   margin: 1%;
-  width: 70%;
+  width: 50rem;
   display: flex;
   flex-direction: column;
   margin-bottom: 1%;
@@ -15,39 +17,49 @@
   display: flex;
   justify-content: space-between;
   padding: 2%;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: green;
+  gap: 1rem;
   align-items: center;
 }
 
 .product-image {
-  width: 30%;
+  width: 6rem;
 }
 
 .product-image img {
-  width: 50%;
+  width: 100%;
+  height: 5rem;
   object-fit: cover;
   border-radius: 20px 15px;
 }
+.product-title {
+  width: 20%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-.filters {
+.finalSum {
   background-color: green !important;
+  /* background-color: rgb(110, 155, 21); */
   color: aliceblue;
 
-  padding: 5%;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-
-  margin: 1%;
+  align-items: center;
+  width: 25rem;
+  /* margin: 1%; */
   height: 86vh;
 }
 
-.filters > span {
+.finalSum > span {
   padding-bottom: 5%;
 }
 
 .title {
-  font-size: 1.2vw;
+  font-size: 0.8rem;
 }
 
 button {
@@ -59,29 +71,67 @@ button {
 .cart_btns {
   display: flex;
   align-items: center;
+  width: 30%;
+  gap: 0.3rem;
+}
+.cart_btns h4 {
+  width: 20%;
+  font-size: 0.9rem;
+  margin: 0 !important;
+  text-align: center;
 }
 
 .cart_btns button {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   background-color: green;
   color: white;
-  padding: 0.5rem;
+  width: 40%;
+  padding: 0.2rem 0;
   border-radius: 10px;
   cursor: pointer;
-  margin: 0 1rem;
+
+  /* margin: 0 1rem; */
 }
 
 .cart_btns button:hover {
   background-color: darkgreen;
+}
+.pro-price {
+  width: 15%;
+  font-size: 0.9rem;
+}
+.delContainer {
+  width: 15%;
+}
+
+#del {
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+}
+#del svg {
+  font-size: 1.4rem;
 }
 
 #check {
   background-color: orange;
   color: white;
   border-radius: 10px;
+  padding: 0.3rem;
+  width: min(100% - 3%, 200px);
   /* padding: 0.5rem; */
 }
-
-#del {
-  background-color: transparent;
+@media only screen and (max-width: 550px) {
+  .products-container {
+    flex-direction: column;
+  }
+  .product-list {
+    width: 100%;
+  }
+  .finalSum {
+    width: 100%;
+    height: 40vh;
+  }
 }

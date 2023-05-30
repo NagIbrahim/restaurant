@@ -7,8 +7,17 @@
   margin: 10px 0;
   /* border: 5px solid blue; */
 }
+.menu-btn:hover {
+  transition: 0.5s;
+  color: black;
+}
 .dropdown-menu {
   min-width: 16rem !important;
+}
+@media only screen and (max-width: 600px) {
+  .dropdown-menu {
+    min-width: 14rem !important;
+  }
 }
 .navbar-expand .navbar-nav {
   align-items: center;
@@ -79,7 +88,7 @@
   width: 30%;
 }
 .logo {
-  width: 7%;
+  width: 4rem;
 }
 .logo_img {
   width: 100%;
@@ -107,4 +116,8 @@
 
 .bg-primary {
   background-color: transparent !important;
+}
+#sign a:hover {
+  transition: 0.5s;
+  color: black;
 }

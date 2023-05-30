@@ -13,8 +13,8 @@
 
 .modal-content {
   background-color: white;
-  width: 50%;
-  height: 50%;
+  width: min(100% - 3%, 600px);
+  /* height: 50%; */
   padding: 2rem;
   position: relative; /* Ensure relative positioning for the close button */
   border-radius: 8px;

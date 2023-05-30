@@ -79,7 +79,7 @@ function Cart() {
               <img src={product.image} alt={product.name} />
             </div>
 
-            <div>
+            <div className="product-title">
               <span>{product.title}</span>
             </div>
             <div className="cart_btns">
@@ -87,9 +87,9 @@ function Cart() {
               <h4>{product.quan}</h4>
               <button onClick={() => handlePlus(index)}>+</button>
             </div>
-            <div>${product.price} </div>
+            <div className="pro-price">${product.price} </div>
 
-            <div>
+            <div className="delContainer">
               <button id="del" onClick={() => handleDelete(index)}>
                 <AiFillDelete fontSize="1.2vw" color="orange" />
               </button>
@@ -97,7 +97,7 @@ function Cart() {
           </div>
         ))}
       </div>
-      <div className="filters summary">
+      <div className="finalSum">
         <span className="title">
           Subtotal ({findUserState?.cart.length}) items
         </span>

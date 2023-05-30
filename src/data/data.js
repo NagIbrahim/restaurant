@@ -3,7 +3,7 @@ const data = [
     id: "1",
     quan: 1,
     cat: "breakfast ",
-    title: " Muffin",
+    title: "Muffin",
     description:
       " Lorem vero exercitationem  accusantium accusantium perspiciatis in quod inciduntaccusantium perspiciatis in quod inciduntperspiciatis in quod incidunt aut, itaque ",
     image: "b1.jpg",

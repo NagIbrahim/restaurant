@@ -7,9 +7,10 @@ import Card from "../../components/card/card.jsx";
 
 const CardList = ({ data, value }) => {
   let { searchValue } = useContext(context);
+
   let newData = data
     .filter((item) => item.cat.includes(value))
-    .filter((item) => item.title.includes(searchValue.toLowerCase()));
+    .filter((item) => item.title.toLowerCase().startsWith(searchValue));
   return (
     <div className="card-list">
       {newData.map((item, index) => {

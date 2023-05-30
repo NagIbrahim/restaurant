@@ -48,7 +48,9 @@ const Header = () => {
         </Navbar.Brand>
 
         {useLocation().pathname.split("/")[1] !== "cart" && (
-          <Link to="/menu">Menu</Link>
+          <Link className="menu-btn" to="/menu">
+            Menu
+          </Link>
         )}
         <Nav>
           {findUser && (
